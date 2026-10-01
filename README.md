@@ -1,12 +1,12 @@
 # 🤖 Asisten Pencatat Pengeluaran Presales Otomatis
 
-**Final Project - PPKD Jakarta Barat AI Bootcamp (KODE by Hacktiv8)**  
-**Author:** Shergy Diardhan (Gio)
+**Final Project - PPKD Jakarta Barat AI Bootcamp (PPKD AIAE x Hacktiv8)**  
+**Author:** Shergy Diardhan
 
 ---
 
 ## 📖 Deskripsi Proyek
-Proyek ini adalah sebuah sistem otomatisasi alur kerja (workflow) berbasis AI yang dibangun menggunakan **n8n**. Sistem ini dirancang untuk menyelesaikan masalah pencatatan keuangan manual yang sering dialami oleh tim *Presales* di lapangan. Dengan bot Telegram sebagai antarmuka utama, pengguna dapat mencatat pengeluaran secara *real-time* hanya dengan mengirimkan pesan teks kasual atau mengunggah foto struk belanja.
+Proyek ini adalah sebuah sistem otomatisasi alur kerja (workflow) berbasis AI yang dibangun menggunakan **n8n**. Sistem ini dirancang untuk menyelesaikan masalah pencatatan keuangan manual yang sering dialami oleh tim *Presales* di lapangan. Dengan bot Telegram sebagai antarmuka utama, pengguna dapat mencatat pengeluaran secara *real-time* hanya dengan mengirimkan pesan teks input atau mengunggah foto struk belanja.
 
 ## 🎯 Latar Belakang Masalah
 * Tim *presales* seringkali harus menalangi pembelian barang mendadak (alat demo, konsumsi klien, perlengkapan) menggunakan uang pribadi.
@@ -14,18 +14,17 @@ Proyek ini adalah sebuah sistem otomatisasi alur kerja (workflow) berbasis AI ya
 * **Tidak Efisien:** Proses rekapitulasi data ke *spreadsheet* secara manual memakan waktu dan rawan terjadi *human error* (salah ketik nominal, lupa memasukkan pajak/diskon).
 
 ## ✨ Fitur Utama
-1. 📸 **Smart Receipt Reader (OCR & Parsing):** Mengunggah foto struk ke bot akan otomatis memicu Google Gemini untuk mengekstrak data (tanggal, nama toko, rincian barang, harga, pajak, total) menjadi format JSON terstruktur.
+1. 📸 **Smart Receipt Reader (OCR & Parsing):** Mengunggah foto struk ke bot akan otomatis memicu Google Gemini untuk mengekstrak data (tanggal, nama toko, rincian barang, harga, pajak, total) menjadi format JSON (diparse) terstruktur.
 2. 💬 **Natural Language Input:** Pengguna dapat mengetik pengeluaran dengan bahasa santai/slang (contoh: *"Beli 2 pak kertas A4 goceng di fotokopi depan, kena PPN 10%"*). AI Agent otomatis menghitung kalkulasi matematis (termasuk diskon dan pajak) secara presisi.
 3. 📊 **Laporan Fleksibel (*On-Demand*):** Dukungan perintah (*command*) untuk menarik rekap data pengeluaran harian, mingguan, bulanan, atau keseluruhan langsung dari Telegram.
 4. ✅ **Sistem Approval Interaktif:** Sebelum laporan direkap dan dikirimkan ke atasan, bot Telegram akan mengirimkan tombol konfirmasi persetujuan (Ya/Tidak).
 5. 📧 **Automated Email Reporting:** Jika disetujui, laporan rekap akan langsung diteruskan (*forward*) secara otomatis ke Gmail atasan.
 
 ## 🛠️ Arsitektur & Teknologi (Tools)
-Proyek ini memenuhi syarat teknis integrasi minimal 2 eksternal *tools*, *AI model*, dan implementasi *conditional logic*:
-* **Platform Automation:** [n8n](https://n8n.io/) (Menggunakan node *Switch, If, Filter, Summarize*).
+* **Platform Automation:** [n8n](https://n8n.io/)
 * **AI Model:** Google Gemini API (Chat Model & Image Analysis).
 * **User Interface:** Telegram Bot API.
-* **Database / Penyimpanan:** Google Sheets.
+* **Penyimpanan:** Google Sheets.
 * **Distribusi Laporan:** Gmail.
 
 ## ⚙️ Alur Kerja (Workflow)
@@ -48,6 +47,5 @@ Untuk mengimpor dan menjalankan workflow ini di *instance* n8n kamu sendiri, kam
 *(Catatan: File JSON dari workflow ini dapat di-import langsung ke dalam kanvas n8n)*
 
 ---
-*Dibuat untuk keperluan evaluasi Capstone Project - AI Automation Engineer 2026.*
 
 LINK n8n : https://diardhans.app.n8n.cloud/workflow/Lf1JN9NoKj6gtnKh
